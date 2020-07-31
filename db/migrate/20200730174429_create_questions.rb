@@ -1,7 +1,7 @@
 class CreateQuestions < ActiveRecord::Migration[6.0]
   def change
     create_table :questions do |t|
-      t.belongs_to :parent
+      t.belongs_to :user
       t.text :question_text
       t.timestamps
     end

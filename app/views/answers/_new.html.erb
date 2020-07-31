@@ -1,0 +1,9 @@
+<%= form_for answer, :url => url_for(:controller => 'answers', :action => 'create') do |f| %>
+    <p>
+      <b>Answer Below:</b><br>
+      <%= f.text_field :answer_text %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>

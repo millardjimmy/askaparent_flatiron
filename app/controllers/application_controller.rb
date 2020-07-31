@@ -1,15 +1,12 @@
 class ApplicationController < ActionController::Base
-
+  
     def current_user
-        if logged_in?
-            User.find(session[:user_id])
-        else
-            false
-        end
+      @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end
-
-    def logged_in?
-        session[:user_id]
+  
+    def user_signed_in?
+      redirect_to login_url unless current_user
     end
-
-end
+  
+    helper_method :current_user
+  end
